@@ -1,0 +1,75 @@
+# These files contain a list of monitor configurations identical
+# to the heartbeat.monitors section in heartbeat.yml
+# The .example extension on this file must be removed for it to
+# be loaded.
+
+# server    
+- type: icmp
+  id: CSHN-Server
+  name: CSHN
+  enabled: true
+  schedule: '@every 120s'
+  
+  
+
+  # Configure IP protocol types to ping on if hostnames are configured.
+  # Ping all resolvable IPs if `mode` is `all`, or only one IP if `mode` is `any`.
+  ipv4: true
+  ipv6: true
+  mode: any
+  
+  fields_under_root: true 
+  fields:
+    Agency: AHS
+    Division: VDH
+    Tier: TEST
+    Layer: Server
+    Canary: True
+
+# web    
+- type: http
+  id: CSHN-Web
+  name: CSHN
+  enabled: true
+  schedule: '@every 120s'
+  
+  hosts: 
+  
+  # Configure IP protocol types to ping on if hostnames are configured.
+  # Ping all resolvable IPs if `mode` is `all`, or only one IP if `mode` is `any`.
+  ipv4: true
+  ipv6: true
+  mode: any
+  
+  fields_under_root: true 
+  fields:
+    Agency: AHS
+    Division: VDH
+    Tier: TEST
+    Layer: Web
+    Canary: True
+
+
+# db    
+- type: tcp
+  id: CSHN-Database
+  name: CSHN
+  enabled: true
+  schedule: '@every 120s'
+  
+
+
+  # Configure IP protocol types to ping on if hostnames are configured.
+  # Ping all resolvable IPs if `mode` is `all`, or only one IP if `mode` is `any`.
+  ipv4: true
+  ipv6: true
+  mode: any
+  
+  fields_under_root: true 
+  fields:
+    Agency: AHS
+    Division: VDH
+    Tier: TEST
+    Layer: Database
+    Canary: True    
+

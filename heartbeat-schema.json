@@ -1,0 +1,83 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Heartbeat connection information",
+
+    "definitions": {
+
+        "urls": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri",
+                "pattern": "^(https?|wss?|ftp)://"
+            },
+            "description": "Enter the urls you'd like to ping. Use for type=https"
+        },
+        "hosts": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Enter the machine names you'd like to ping. Use for type in (icmp or tcp)"
+        }
+      },
+
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+
+        "type": {
+          "type": "string",
+          "enum": ["icmp","http","tcp"],
+          "description": "Connection Protocol"
+        },
+        "id": {
+            "type": "string",
+            "pattern": ".*-(Server|Web|Database)$",
+            "description": "Must be unique name - Should be the app being tested plus the layer"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the application being tested"
+        },
+        "enabled": {
+            "type": "boolean",
+            "description": "Whether or not the job is set to run"
+        },
+        "schedule": {
+            "type": "string",
+            "description": "A chron-like expression. https://www.elastic.co/guide/en/beats/heartbeat/current/configuration-heartbeat-options.html#monitor-schedule"
+        },
+
+
+
+        "ipv4": {"type": "boolean"},
+        "ipv6": {"type": "boolean"},
+        "mode": {
+            "type": "string",
+            "enum": ["all","any"],
+            "description": "Configure IP protocol types to ping on if hostnames are configured. Ping all resolvable IPs if `mode` is `all`, or only one IP if `mode` is `any`."
+          }
+
+      },
+
+      "if": {
+        "properties": { "type": { "const": "http" } }
+        },
+        "then": {
+            "properties": { "urls": { "$ref": "#/definitions/urls" }}
+        },
+        "else": {
+            "properties": { "hosts": { "$ref": "#/definitions/hosts" }}
+        },
+
+
+      "required": [
+        "type",
+        "id",
+        "name",
+        "enabled"
+      ]
+    }
+  }

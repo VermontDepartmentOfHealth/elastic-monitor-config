@@ -1,0 +1,6 @@
+[
+    {
+        "type":"http",
+        "urls": ["http://google.com"]
+    }
+]

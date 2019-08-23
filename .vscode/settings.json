@@ -1,0 +1,15 @@
+{
+    "yaml.schemas": {
+      "heartbeat-schema.json": "monitors.d/*.yml"
+    },
+
+
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "monitors.d/*.json"
+            ],
+            "url": "./heartbeat-schema.json"
+        }
+    ]
+  }
