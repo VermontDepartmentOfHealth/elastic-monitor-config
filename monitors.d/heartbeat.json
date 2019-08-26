@@ -1,6 +1,8 @@
 [
     {
-        "type":"http",
-        "urls": ["http://google.com"]
+        "type":"icmp",
+        "id": "3423",
+        "hosts": [],
+        "ipv4": true
     }
 ]

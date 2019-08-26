@@ -4,13 +4,14 @@
 # be loaded.
 
 # server    
-- type: icmp
+- type: tcp
   id: CSHN-Server
   name: CSHN
   enabled: true
-  schedule: '@every 120s'
+  schedule: '@every 11s'
   
-  
+  hosts:
+      - null
 
   # Configure IP protocol types to ping on if hostnames are configured.
   # Ping all resolvable IPs if `mode` is `all`, or only one IP if `mode` is `any`.
@@ -32,8 +33,8 @@
   name: CSHN
   enabled: true
   schedule: '@every 120s'
-  
-  hosts: 
+  urls:
+      - null
   
   # Configure IP protocol types to ping on if hostnames are configured.
   # Ping all resolvable IPs if `mode` is `all`, or only one IP if `mode` is `any`.
@@ -72,4 +73,3 @@
     Tier: TEST
     Layer: Database
     Canary: True    
-

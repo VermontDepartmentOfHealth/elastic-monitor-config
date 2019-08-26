@@ -1,6 +1,6 @@
 {
     "yaml.schemas": {
-      "heartbeat-schema.json": "monitors.d/*.yml"
+      "monitors.schema.json": "monitors.d/*.yml"
     },
 
 
@@ -9,7 +9,7 @@
             "fileMatch": [
                 "monitors.d/*.json"
             ],
-            "url": "./heartbeat-schema.json"
+            "url": "./monitors.schema.json"
         }
     ]
   }
