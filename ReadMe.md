@@ -13,7 +13,7 @@
 * [YAML - Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
   * [redhat-developer/vscode-yaml](https://github.com/redhat-developer/vscode-yaml)
 * [vscode-yaml-validation](https://github.com/djabraham/vscode-yaml-validation)
-
+* [Autocompletion not showing up with conditional subschemas #222](https://github.com/redhat-developer/vscode-yaml/issues/222)
 
 ## Chron Syntax / Regex
 
